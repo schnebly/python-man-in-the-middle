@@ -10,7 +10,6 @@ class Client(threading.Thread):
 
 class Server(threading.Thread):
     def run(self):
-        count = 0
         serverHost = "127.0.0.1"
         serverPort = 12346
         serverAddress = (serverHost, serverPort)
