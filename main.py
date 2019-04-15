@@ -29,5 +29,17 @@ class Attacker(threading.Thread):
         serverHost = "127.0.0.1"
         serverPort = 12346
         serverAddress = (serverHost, serverPort)
-        
+
         serverConnection = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+server = Server()
+attacker = Attacker()
+client = Client()
+
+server.start()
+attacker.start()
+client.start()
+
+server.join()
+attacker.join()
+client.join()
