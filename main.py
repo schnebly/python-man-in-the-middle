@@ -99,6 +99,17 @@ class Attacker(threading.Thread):
             # modify request (if desired)
             serverRequestData = clientRequestData.decode(ENCODING)
 
+            if clientRequestData.decode(ENCODING) == "quick":
+                serverRequestData = "big"
+            if clientRequestData.decode(ENCODING) == "fox":
+                serverRequestData = "bear"
+            if clientRequestData.decode(ENCODING) == "jumps":
+                serverRequestData = "runs"
+            if clientRequestData.decode(ENCODING) == "lazy":
+                serverRequestData = "hyper"
+            if clientRequestData.decode(ENCODING) == "dog":
+                serverRequestData = "rabbit"
+
             # send request to server
             print(spacing, "put:", serverRequestData)
             serverConnection.sendto(serverRequestData.encode(ENCODING), serverAddress)
